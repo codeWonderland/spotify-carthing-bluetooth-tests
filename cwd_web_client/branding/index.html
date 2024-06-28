@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="styles.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div class="main">
+			<div class="scene scene--terminal active">
+				<!-- Shows bash terminal for codeWonderland -->
+				<!-- Blinking curser types in ./start -->
+				<p class="terminal__prompt">
+					<span class="terminal__prompt__hostname">
+						codeWonderland> 
+					</span>
+
+					<span class="terminal__prompt__input"></span>
+
+					<span class="terminal__prompt__cursor"></span>
+				</p>
+			</div>
+
+			<div class="scene scene--matrix">
+				<canvas id="matrixCanvas"></canvas>
+			</div>
+
+			<div class="scene scene--logo">
+				<!-- CWD logo appears then whole scene glitches away -->
+				<div class="logo__parts">
+					<img src="c.svg" />	
+					<img src="w.svg" />
+					<img src="slash.svg" />
+					<img src="d.svg" />
+				</div>
+
+				<h1 class="logo__branding">
+					codeWonderland Development
+				</h1>
+			</div>
+		</div>
+
+		<div class="post-processing">
+			<div class="crt"></div>
+			<div class="gradient-overlay"></div>
+		</div>
+	
+		<script src="util.js" type="text/javascript"></script>
+		<script src="scenes.js" type="text/javascript"></script>
+		<script src="main.js" type="text/javascript" defer></script>
+	</body>
+<html>

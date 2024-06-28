@@ -1,0 +1,176 @@
+@font-face {
+    font-family: 'Fira Code';
+    src: url('../assets/fonts/FiraCode-Light.ttf') format('TRUETYPE');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('../assets/fonts/FiraCode-Medium.ttf') format('TRUETYPE');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('../assets/fonts/FiraCode-Regular.ttf') format('TRUETYPE');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('../assets/fonts/FiraCode-SemiBold.ttf') format('TRUETYPE');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('../assets/fonts/FiraCode-Bold.ttf') format('TRUETYPE');
+    font-weight: 700;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+:root {
+    --black: #1a2b42;
+    --green: #5cc59e;
+    --dark-purple: #080820;
+}
+
+body {
+    background: var(--black);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Fira Code';
+    color: var(--green);
+}
+
+.main {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.scene {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.scene.active {
+    display: block;
+}
+
+.scene--terminal {
+    background: var(--black);
+    color: var(--green);
+    padding: 0 10rem;
+    align-items: center;
+}
+
+.scene.scene--terminal.active {
+    display: flex;
+}
+
+.terminal__prompt {
+    display: flex;
+}
+
+.terminal__prompt__hostname {
+    margin-right: 4px;
+}
+
+.terminal__prompt__cursor {
+    width: 8px;
+    height: 20px;
+    background: var(--green);
+    opacity: 0;
+    transition: 0.1s ease;
+}
+
+.terminal__prompt__cursor.visible {
+    opacity: 1;
+}
+
+.scene--logo {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.scene.scene--logo.active {
+    display: flex;
+}
+
+.logo__parts img {
+    opacity: 0;
+}
+
+.logo__parts img.visible {
+    opacity: 1;
+    animation: pulse 0.5s linear forwards;
+}
+
+.logo__branding {
+    font-size: 48px;
+    opacity: 0;
+    -webkit-text-stroke: 1px var(--black);
+    text-align: center;
+    text-shadow:
+       3px 3px 0 var(--black),
+     -1px -1px 0 var(--black),  
+      1px -1px 0 var(--black),
+      -1px 1px 0 var(--black),
+       1px 1px 0 var(--black);
+    transition: 0.3s ease-in-out;
+}
+
+.logo__branding.visible {
+    opacity: 1;
+}
+
+.gradient-overlay {
+    background: radial-gradient(circle, transparent 75%, var(--dark-purple));
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: 2;
+}
+
+.crt {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(17, 20, 53, 0.1),
+            rgba(118, 255, 241, 0.1));
+    background-repeat: repeat;
+    background-size: 100vw 15vh;
+    background-position: 0% 100%;
+    animation: bgscroll 5s linear infinite;
+    opacity: 0.05;
+}
+
+@keyframes bgscroll {
+    100% {
+        background-position: 0% 0%;
+    }
+}
